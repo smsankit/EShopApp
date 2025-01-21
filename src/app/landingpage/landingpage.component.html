@@ -1,0 +1,39 @@
+<!-- @if (isLoggedIn) { -->
+  <div class="container">
+    <div class="row gx-5">
+        <div class="col p-3">
+          <form>
+            <div class="input-group">
+              <input type="text" class="form-control p-2" [(ngModel)]="searchTerm" placeholder="Enter search term" name="searchTerm" />
+              <button type="button" class="btn btn-primary" (click)="search()">Search</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+
+
+    <div class="row" style="padding-top: 20px ;">
+        @for (product of productlist; track $index) {
+
+        <div class="col-md-3">
+            <div class="card mb-3">
+                <!-- Product Image -->
+                <img [src]="product.image" class="card-img-top" alt="Product Image">
+
+                <div class="card-body">
+                    <h5 class="card-title">{{ truncateTheString(product.title,50) }}</h5>
+
+                    <p class="card-text">{{ truncateTheString(product.description, 50) }}</p>
+
+                    <p class="card-text"><strong>Price:</strong> &#8377;{{ product.price }}</p>
+
+                    <p class="card-text"><strong>Category:</strong> {{ product.category }}</p>
+                </div>
+            </div>
+
+        </div>
+        }
+    </div>
+</div>
+<!-- } -->

@@ -1,0 +1,21 @@
+# Node artifacts
+node_modules/
+
+# Dependency directories
+jspm_packages/
+
+# TypeScript artifacts
+*.js
+*.js.map
+*.d.ts
+
+# Angular artifacts
+/dist/
+/tmp/
+/*.ngfactory.ts
+/*.shim.ts
+/*.ngstyle.ts
+
+# System Files
+.DS_Store
+Thumbs.db
