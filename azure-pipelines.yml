@@ -44,31 +44,31 @@ stages:
           ArtifactName: 'drop'
           publishLocation: 'Container'
 
-- stage: Development
-  displayName: 'Deploy to Development'
-  dependsOn: Build
-  condition: succeeded()
-  jobs:
-  - deployment: DeploymentDevelopment
-    pool:
-      vmImage: 'ubuntu-latest'
-    environment: Development
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - task: NodeTool@0
-            inputs:
-              versionSpec: '18.x'
-            displayName: 'Install Node.js 18.x'
-          - task: AzureWebApp@1
-            displayName: 'Deploy App Service'
-            inputs:
-              azureSubscription: 'Azure subscription 1 (0a728bdd-e495-4dd4-aa21-e10260feb79c)'
-              appType: 'webApp'
-              appName: 'mcartapp'
-              package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
-              runtimeStack: 'NODE|18-lts'
-              startUpCommand: 'run npm start'
-              deploymentMethod: 'auto'
+# - stage: Development
+#   displayName: 'Deploy to Development'
+#   dependsOn: Build
+#   condition: succeeded()
+#   jobs:
+#   - deployment: DeploymentDevelopment
+#     pool:
+#       vmImage: 'ubuntu-latest'
+#     environment: Development
+#     strategy:
+#       runOnce:
+#         deploy:
+#           steps:
+#           - task: NodeTool@0
+#             inputs:
+#               versionSpec: '18.x'
+#             displayName: 'Install Node.js 18.x'
+#           - task: AzureWebApp@1
+#             displayName: 'Deploy App Service'
+#             inputs:
+#               azureSubscription: 'Azure subscription 1 (0a728bdd-e495-4dd4-aa21-e10260feb79c)'
+#               appType: 'webApp'
+#               appName: 'mcartapp'
+#               package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
+#               runtimeStack: 'NODE|18-lts'
+#               startUpCommand: 'run npm start'
+#               deploymentMethod: 'auto'
      
