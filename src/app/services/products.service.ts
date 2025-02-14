@@ -19,7 +19,7 @@ export class ProductsService {
 
   public getProducts(): Observable<Product> {
     // const product_url = 'https://fakestoreapi.com/products';
-    const product_url =  'http://amcart-api.centralindia.cloudapp.azure.com/products1';
+    const product_url =  'https://amcart-api.centralindia.cloudapp.azure.com/products1';
    
     // return this.http.get<Product>(`${environment.productApiUrl}/${this.productUrl}`);
     return this.http.get<Product>(`${product_url}`);
