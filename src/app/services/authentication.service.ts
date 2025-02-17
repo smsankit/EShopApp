@@ -22,16 +22,14 @@ export class AuthenticationService {
 
   public register(user: Register): Observable<JwtAuth> {
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*'
+      'Content-Type': 'application/json'
     });
     return this.http.post<JwtAuth>(`${environment.authApiUrl}/${this.registerUrl}`, user, { headers });
   }
 
   public login(user: Login): Observable<JwtAuth> {
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*'
+      'Content-Type': 'application/json'
     });
     return this.http.post<JwtAuth>(`${environment.authApiUrl}/${this.loginrUrl}`, user, { headers });
   }
