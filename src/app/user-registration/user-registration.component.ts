@@ -22,58 +22,58 @@ export class UserRegistrationComponent {
     private storageService: StorageService) { }
 
 
-  // register(registerDto: Register) {
-  //   this.authService.register(registerDto).subscribe(
-  //     (jwtDto) => {
-  //       if (jwtDto != null && jwtDto.result === true) {
-  //         console.log(jwtDto);
-  //         this.message = 'Registration successful!';
-  //         this.registerDto.name='';
-  //         this.registerDto.email='';
-  //         this.registerDto.password='';
-  //       }
-  //       else {
-  //         this.message = 'Error during user registration';
-  //       }
-  //     }
-  //     ,
-  //     (error) => {
-  //       this.message = 'Error during user registration';
-  //       console.error('Error during user registration:', error);
-  //     }
-  //   );
-  // }
+  register(registerDto: Register) {
+    this.authService.register(registerDto).subscribe(
+      (jwtDto) => {
+        if (jwtDto != null && jwtDto.result === true) {
+          console.log(jwtDto);
+          this.message = 'Registration successful!';
+          this.registerDto.name='';
+          this.registerDto.email='';
+          this.registerDto.password='';
+        }
+        else {
+          this.message = 'Error during user registration';
+        }
+      }
+      ,
+      (error) => {
+        this.message = 'Error during user registration';
+        console.error('Error during user registration:', error);
+      }
+    );
+  }
 
 
    
-  register(registerDto: Register): void {
-    // Check if the provided DTO is valid
-    if (!registerDto || !registerDto.name || !registerDto.email || !registerDto.password) {
-      this.message = 'Please provide all required fields.';
-      return;
-    }
+  // register(registerDto: Register): void {
+  //   // Check if the provided DTO is valid
+  //   if (!registerDto || !registerDto.name || !registerDto.email || !registerDto.password) {
+  //     this.message = 'Please provide all required fields.';
+  //     return;
+  //   }
   
-    // Retrieve existing users from local storage
-    const existingUsers: Register[] = JSON.parse(localStorage.getItem('users') || '[]');
+  //   // Retrieve existing users from local storage
+  //   const existingUsers: Register[] = JSON.parse(localStorage.getItem('users') || '[]');
   
-    // Check if the user already exists based on the email
-    const userExists = existingUsers.some((user) => user.email === registerDto.email);
+  //   // Check if the user already exists based on the email
+  //   const userExists = existingUsers.some((user) => user.email === registerDto.email);
   
-    if (userExists) {
-      this.message = 'User with this email already exists!';
-      return;
-    }
+  //   if (userExists) {
+  //     this.message = 'User with this email already exists!';
+  //     return;
+  //   }
   
-    // Add the new user to the users array
-    existingUsers.push(registerDto);
+  //   // Add the new user to the users array
+  //   existingUsers.push(registerDto);
   
-    // Save updated users back to local storage
-    localStorage.setItem('users', JSON.stringify(existingUsers));
+  //   // Save updated users back to local storage
+  //   localStorage.setItem('users', JSON.stringify(existingUsers));
   
-    // Clear error message and show success notification
-    this.message = '';
-    alert('Signup successful!');
-  }
+  //   // Clear error message and show success notification
+  //   this.message = '';
+  //   alert('Signup successful!');
+  // }
 
  
 

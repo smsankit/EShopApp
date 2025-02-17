@@ -17,6 +17,6 @@ export class SearchProductsService {
   }
 
   public searchProducts(searchTerm:any): Observable<Product> {
-    return this.http.get<Product>(`${environment.productApiUrl}/${this.productSearchUrl}?searchterm=${searchTerm}`);
+    return this.http.get<Product>(`${environment.productApiUrl}/${this.productSearchUrl}?productName=${searchTerm}`);
   }
 }
