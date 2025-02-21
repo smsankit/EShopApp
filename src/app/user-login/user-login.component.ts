@@ -27,6 +27,11 @@ export class UserLoginComponent {
     private storageService: StorageService) { }
 
   login(loginDto: Login) {
+    if (!loginDto || !loginDto.email || !loginDto.password) {
+        this.message = 'Please provide both email and password.';
+        alert(this.message);
+        return;
+    }
     this.isLoading = true;
     this.authService.login(loginDto).subscribe(
       (jwtDto) => {
