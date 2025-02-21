@@ -30,8 +30,10 @@
     <button 
       type="button" 
       class="btn btn-primary" 
-      (click)="login(loginDto)">
-      Login
+      (click)="login(loginDto)"
+      [disabled]="isLoading">
+      <span> {{ isLoading ? 'Loading...' : 'Login' }} </span>
+      
     </button>
   </div>
 
