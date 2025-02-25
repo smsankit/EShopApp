@@ -43,8 +43,8 @@
       <button 
         type="button" 
         class="btn btn-primary" 
-        (click)="register(registerDto)">
-        Register
+        (click)="register(registerDto)"[disabled]="isLoading">
+        <span> {{ isLoading ? 'Loading...' : 'Register' }} </span>
       </button>
     </div>
   

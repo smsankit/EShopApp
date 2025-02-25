@@ -19,6 +19,7 @@ export class UserLoginComponent {
   jwtDto = new JwtAuth();
   registerDto = new Register();
   message: any = '';
+  isLoading = false;
 
   constructor(private authService: AuthenticationService, 
     private router: Router, 
@@ -26,9 +27,15 @@ export class UserLoginComponent {
     private storageService: StorageService) { }
 
   login(loginDto: Login) {
-    console.log("aa gaya");
+    if (!loginDto || !loginDto.email || !loginDto.password) {
+        this.message = 'Please provide both email and password.';
+        alert(this.message);
+        return;
+    }
+    this.isLoading = true;
     this.authService.login(loginDto).subscribe(
       (jwtDto) => {
+        this.isLoading = false;
         if (jwtDto != null && jwtDto.result === true) {
           localStorage.setItem('jwtToken', jwtDto.token);
           console.log(jwtDto);
@@ -39,12 +46,14 @@ export class UserLoginComponent {
         }
         else {
           this.message = 'Error during user login';
+          alert(this.message);
         }
       }
       ,
       (error) => {
+        this.isLoading = false;
         this.message = 'Error during user login';
-        console.error('Error during user login:', error);
+        alert(this.message);
       }
     );
   }

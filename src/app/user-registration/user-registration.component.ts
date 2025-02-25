@@ -16,30 +16,42 @@ import { StorageService } from '../services/storage.service';
 export class UserRegistrationComponent {
   registerDto = new Register();
   jwtDto = new JwtAuth();
-  message: any = '';
+  message: string = '';
+  isLoading = false;
 
   constructor(private authService: AuthenticationService, 
     private storageService: StorageService) { }
 
 
   register(registerDto: Register) {
+    if (!registerDto || !registerDto.name || !registerDto.email || !registerDto.password) {
+          this.message = 'Please provide all required fields.';
+          alert(this.message);
+          return;
+    }
+    this.isLoading = true;
     this.authService.register(registerDto).subscribe(
       (jwtDto) => {
+        this.isLoading = false;
         if (jwtDto != null && jwtDto.result === true) {
           console.log(jwtDto);
           this.message = 'Registration successful!';
           this.registerDto.name='';
           this.registerDto.email='';
           this.registerDto.password='';
+          alert(this.message);
         }
         else {
           this.message = 'Error during user registration';
+          alert(this.message);
         }
       }
       ,
       (error) => {
+        this.isLoading = false;
         this.message = 'Error during user registration';
         console.error('Error during user registration:', error);
+        alert(this.message);
       }
     );
   }
