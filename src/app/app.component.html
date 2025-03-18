@@ -33,7 +33,7 @@
             <a class="nav-link text-white" style="cursor: pointer;" (click)="logout()">&#9993; Logout</a>
           </li>
         }
-        @if (!authService.isLoggedIn() && !(this.router.url === '/')) {s
+        @if (!authService.isLoggedIn() && !(this.router.url === '/')) {
           <li class="nav-item">
             <a class="nav-link text-white" style="cursor: pointer;" href="#">Login</a>
           </li>
