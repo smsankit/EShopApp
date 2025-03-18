@@ -4,4 +4,5 @@ export class Product {
     price = '';
     category = '';
     image='';
+    noOfItems ='';
 }

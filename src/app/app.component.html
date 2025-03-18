@@ -27,10 +27,13 @@
       <ul class="navbar-nav ms-3">
         @if (authService.isLoggedIn()) {
           <li class="nav-item">
+            <a class="nav-link" (click)="cart()">Cart</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link text-white" style="cursor: pointer;" (click)="logout()">&#9993; Logout</a>
           </li>
         }
-        @if (!authService.isLoggedIn() && !(this.router.url === '/')) {
+        @if (!authService.isLoggedIn() && !(this.router.url === '/')) {s
           <li class="nav-item">
             <a class="nav-link text-white" style="cursor: pointer;" href="#">Login</a>
           </li>

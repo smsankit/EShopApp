@@ -48,4 +48,10 @@ export class AppComponent {
     // Navigate to the dashboard
     this.router.navigate(['/aboutus']);
   }
+
+  cart(): void {
+    // Navigate to the dashboard
+    this.router.navigate(['/cart']);
+  }
+
 }
