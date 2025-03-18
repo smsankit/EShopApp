@@ -82,7 +82,6 @@ export class UserLoginComponent {
 
   skipToDashboard(): void {
     // Navigate to the dashboard
-    console.log("AA gaya");
     this.router.navigate(['/home']);
   }
 

@@ -33,4 +33,19 @@ export class AppComponent {
   logout(){
     this.authService.logout();
   }
+
+  skipToDashboard(): void {
+    // Navigate to the dashboard
+   
+  }
+
+  contactUs(): void {
+    // Navigate to the dashboard
+    this.router.navigate(['/contact']);
+  }
+
+  aboutUs(): void {
+    // Navigate to the dashboard
+    this.router.navigate(['/aboutus']);
+  }
 }
