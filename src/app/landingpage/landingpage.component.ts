@@ -5,6 +5,7 @@ import { Product } from '../models/product';
 import { ProductsService } from '../services/products.service';
 import { SearchProductsService } from '../services/search-product.service';
 import { AuthenticationService } from '../services/authentication.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -22,7 +23,7 @@ isLoggedIn:boolean=false;
 
   searchTerm: any = '';
 
-  constructor(private productsService: ProductsService, private searchProductService: SearchProductsService, private authService:AuthenticationService) {
+  constructor(private productsService: ProductsService, private router: Router, private searchProductService: SearchProductsService, private authService:AuthenticationService) {
     if(authService.isLoggedIn()){
       this.isLoggedIn=true;
     }
@@ -72,7 +73,13 @@ isLoggedIn:boolean=false;
   }
 
   showProductAlert(product: any) {
-    console.log("Ankit");
+  
     alert(`Product: ${product.title}\nPrice: ₹${product.price}\nCategory: ${product.category}`);
+  }
+
+  goToProductDetails(product: any) {
+    console.log("Ankit");
+    // this.router.navigate(['/home']);
+    this.router.navigate(['/productDetails'], { state: { productData: product } });
   }
 }

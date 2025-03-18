@@ -23,8 +23,8 @@ export class ProductsService {
     // const product_url = 'http://amcart-api.centralindia.cloudapp.azure.com/products1';
     // ${environment.authApiUrl}/${this.registerUrl}
     // return this.http.get<Product>(`${product_url}`);
-    return this.http.get<Product>(`${environment.productApiUrl}/${product_endpoint}`);
-    // return this.http.get<Product>('https://fakestoreapi.com/products');
+    // return this.http.get<Product>(`${environment.productApiUrl}/${product_endpoint}`);
+    return this.http.get<Product>('https://fakestoreapi.com/products');
 
   }
 }
