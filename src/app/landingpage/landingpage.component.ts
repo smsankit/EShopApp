@@ -70,4 +70,9 @@ isLoggedIn:boolean=false;
     }
     return description;
   }
+
+  showProductAlert(product: any) {
+    console.log("Ankit");
+    alert(`Product: ${product.title}\nPrice: ₹${product.price}\nCategory: ${product.category}`);
+  }
 }

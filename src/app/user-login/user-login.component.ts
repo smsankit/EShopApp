@@ -101,5 +101,4 @@ export class UserLoginComponent {
     this.storageService.clear();
     console.log('Local storage cleared');
   }
-
 }

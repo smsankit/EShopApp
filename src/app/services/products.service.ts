@@ -24,6 +24,7 @@ export class ProductsService {
     // ${environment.authApiUrl}/${this.registerUrl}
     // return this.http.get<Product>(`${product_url}`);
     return this.http.get<Product>(`${environment.productApiUrl}/${product_endpoint}`);
+    // return this.http.get<Product>('https://fakestoreapi.com/products');
 
   }
 }
