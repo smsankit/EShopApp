@@ -36,7 +36,7 @@ export class AppComponent {
 
   skipToDashboard(): void {
     // Navigate to the dashboard
-   
+    this.router.navigate(['/home']);
   }
 
   contactUs(): void {
