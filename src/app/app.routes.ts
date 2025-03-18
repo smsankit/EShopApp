@@ -12,7 +12,8 @@ export const routes: Routes = [
     { path: 'productDetails', component: ProductDetailsComponent },
     { path: 'home', component: LandingpageComponent },
     { path: 'contact', component: ContactusComponent },
-    { path: 'aboutus', component: AboutUsComponent }
+    { path: 'aboutus', component: AboutUsComponent },
+    { path: '**', redirectTo: '/home' } // Catch-all for unknown routes
 ];
 
   @NgModule({
