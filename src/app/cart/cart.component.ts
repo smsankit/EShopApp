@@ -29,4 +29,8 @@ export class CartComponent {
     this.cartService.clearCart();
     this.cartItems = [];
   }
+
+  checkout(): void{
+    alert("Yet to be implemented");
+  }
 }
